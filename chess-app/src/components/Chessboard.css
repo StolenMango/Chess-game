@@ -11,3 +11,11 @@
   height: 6.25rem;
   width: 6.25rem;
 }
+
+#chessboard .dark-tile {
+  background: #3b6a5b;
+}
+
+#chessboard .bright-tile {
+  background: #ebecd0;
+}

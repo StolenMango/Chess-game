@@ -12,15 +12,29 @@ export default function chessboard() {
   // here I spent a long time trying to figure out what was wrong, as per the axis image, I was rendering the "a" row, but I needed it to render it throught the "8" row. So I swapped l and i around.
   for (let l = verticalAxis.length - 1; l >= 0; l--) {
     for (let i = 0; i < horizontalAxis.length; i++) {
-      board.push(
-        <span
-          className="axis-tile"
-          key={`${horizontalAxis[i]}${verticalAxis[l]}`}
-        >
-          [{horizontalAxis[i]}
-          {verticalAxis[l]}]
-        </span>
-      );
+      //
+      const number = i + l + 2; // vertical starts at 0 so we want to add 1, same for horizontal hence the +2
+      if (number % 2 === 0) {
+        board.push(
+          <span
+            className="axis-tile bright-tile"
+            key={`${horizontalAxis[i]}${verticalAxis[l]}`}
+          >
+            [{horizontalAxis[i]}
+            {verticalAxis[l]}]
+          </span>
+        );
+      } else {
+        board.push(
+          <span
+            className="axis-tile dark-tile"
+            key={`${horizontalAxis[i]}${verticalAxis[l]}`}
+          >
+            [{horizontalAxis[i]}
+            {verticalAxis[l]}]
+          </span>
+        );
+      }
     }
   }
   return <div id="chessboard">{board}</div>;

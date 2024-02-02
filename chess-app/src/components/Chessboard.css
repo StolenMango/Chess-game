@@ -1,5 +1,13 @@
 #chessboard {
-  width: 50.063rem;
-  height: 50.063rem;
+  display: grid;
+  grid-template-columns: 6.25rem 6.25rem 6.25rem 6.25rem 6.25rem 6.25rem 6.25rem 6.25rem;
+  grid-template-rows: 6.25rem 6.25rem 6.25rem 6.25rem 6.25rem 6.25rem 6.25rem 6.25rem;
+  width: 50rem;
+  height: 50rem;
   background: #3b6a5b;
+}
+
+.axis-tile #chessboard {
+  height: 6.25rem;
+  width: 6.25rem;
 }

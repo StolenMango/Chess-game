@@ -13,7 +13,10 @@ export default function chessboard() {
   for (let l = verticalAxis.length - 1; l >= 0; l--) {
     for (let i = 0; i < horizontalAxis.length; i++) {
       board.push(
-        <span key={`${horizontalAxis[i]}${verticalAxis[l]}`}>
+        <span
+          className="axis-tile"
+          key={`${horizontalAxis[i]}${verticalAxis[l]}`}
+        >
           [{horizontalAxis[i]}
           {verticalAxis[l]}]
         </span>

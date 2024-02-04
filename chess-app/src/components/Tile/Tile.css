@@ -1,4 +1,6 @@
 .axis-tile {
+  display: grid;
+  place-content: center;
   height: 6.25rem;
   width: 6.25rem;
 }

@@ -8,14 +8,11 @@ const horizontalAxis = ["a", "b", "c", "d", "e", "f", "g", "h"];
 // don't forget to make a new array for it
 export default function chessboard() {
   let board = [];
-
-  // on the vertical axis we want to start from the end of the array
-  // here I spent a long time trying to figure out what was wrong, as per the axis image, I was rendering the "a" row, but I needed it to render it throught the "8" row. So I swapped l and i around.
   for (let l = verticalAxis.length - 1; l >= 0; l--) {
     for (let i = 0; i < horizontalAxis.length; i++) {
       //
       const number = i + l + 2; // vertical starts at 0 so we want to add 1, same for horizontal hence the +2
-      board.push(<Tile number={number}></Tile>);
+      board.push(<Tile image="./assets/pawn_b.png" number={number}></Tile>);
       // if (number % 2 === 0) {
       //   board.push(<Tile />);
       // } else {

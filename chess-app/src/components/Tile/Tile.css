@@ -12,3 +12,7 @@
 .bright-tile {
   background: #ebecd0;
 }
+
+.axis-tile img {
+  width: 5rem;
+}

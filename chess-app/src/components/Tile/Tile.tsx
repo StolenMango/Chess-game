@@ -2,17 +2,22 @@ import React from "react";
 import "./Tile.css";
 
 interface Props {
+  image?: string;
   number: number;
 }
 
-export default function Tile({ number }: Props) {
+export default function Tile({ number, image }: Props) {
   if (number % 2 === 0) {
     return (
       <div className="axis-tile dark-tile">
-        S<img src="assets/pawn_b.png" alt="pawn"></img>
+        <img src={image} alt="chess piece"></img>
       </div>
     );
   } else {
-    return <div className="axis-tile git addbright-tile"></div>;
+    return (
+      <div className="axis-tile bright-tile">
+        <img src={image} alt="chess piece"></img>
+      </div>
+    );
   }
 }

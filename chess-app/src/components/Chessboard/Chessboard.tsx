@@ -15,25 +15,9 @@ export default function chessboard() {
       //
       const number = i + l + 2; // vertical starts at 0 so we want to add 1, same for horizontal hence the +2
       if (number % 2 === 0) {
-        board.push(
-          <span
-            className="axis-tile bright-tile"
-            key={`${horizontalAxis[i]}${verticalAxis[l]}`}
-          >
-            [{horizontalAxis[i]}
-            {verticalAxis[l]}]
-          </span>
-        );
+        board.push(<span className="axis-tile bright-tile"></span>);
       } else {
-        board.push(
-          <span
-            className="axis-tile dark-tile"
-            key={`${horizontalAxis[i]}${verticalAxis[l]}`}
-          >
-            [{horizontalAxis[i]}
-            {verticalAxis[l]}]
-          </span>
-        );
+        board.push(<span className="axis-tile dark-tile"></span>);
       }
     }
   }

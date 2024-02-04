@@ -1,3 +1,4 @@
+import Tile from "../Tile/Tile";
 import React from "react";
 import "./Chessboard.css";
 // the 2 axis of the board
@@ -14,11 +15,12 @@ export default function chessboard() {
     for (let i = 0; i < horizontalAxis.length; i++) {
       //
       const number = i + l + 2; // vertical starts at 0 so we want to add 1, same for horizontal hence the +2
-      if (number % 2 === 0) {
-        board.push(<span className="axis-tile bright-tile"></span>);
-      } else {
-        board.push(<span className="axis-tile dark-tile"></span>);
-      }
+      board.push(<Tile number={number}></Tile>);
+      // if (number % 2 === 0) {
+      //   board.push(<Tile />);
+      // } else {
+      //   board.push(<Tile />);
+      // }
     }
   }
   return <div id="chessboard">{board}</div>;

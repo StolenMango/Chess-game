@@ -1,0 +1,12 @@
+.axis-tile {
+  height: 6.25rem;
+  width: 6.25rem;
+}
+
+.dark-tile {
+  background: #3b6a5b;
+}
+
+.bright-tile {
+  background: #ebecd0;
+}

@@ -13,6 +13,14 @@ interface Piece {
 
 const pieces: Piece[] = [];
 
+for (let i = 0; i < 8; i++) {
+  pieces.push({ image: "assets/pawn_b.png", x: i, y: 6 });
+}
+
+for (let i = 0; i < 8; i++) {
+  pieces.push({ image: "assets/pawn_w.png", x: i, y: 1 });
+}
+
 pieces.push({ image: "assets/pawn_b.png", x: 0, y: 6 });
 //create 2 for loops to render the board, one loop within the other loop
 // don't forget to make a new array for it

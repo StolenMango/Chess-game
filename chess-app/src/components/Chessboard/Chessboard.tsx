@@ -54,7 +54,7 @@ export default function chessboard() {
           image = p.image;
         }
       }); // look throuygh each element without using a variable to directly access a piece element.
-      board.push(<Tile image={image} number={number}></Tile>);
+      board.push(<Tile key={`${l},${i}`} image={image} number={number}></Tile>);
     }
   }
   return <div id="chessboard">{board}</div>;

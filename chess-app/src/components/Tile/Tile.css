@@ -16,3 +16,11 @@
 .axis-tile img {
   width: 5rem;
 }
+
+.axis-tile .chess-piece {
+  width: 6.25rem;
+  height: 6.25rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 5rem;
+}

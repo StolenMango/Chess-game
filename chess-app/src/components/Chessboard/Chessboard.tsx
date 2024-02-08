@@ -40,6 +40,14 @@ pieces.push({ image: "assets/queen_w.png", x: 4, y: 0 });
 pieces.push({ image: "assets/king_w.png", x: 3, y: 0 });
 
 pieces.push({ image: "assets/pawn_b.png", x: 0, y: 6 });
+
+function grabPiece(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+  const element = e.target as HTMLElement;
+  if (element.classList.contains("chess-piece")) {
+    console.log(element);
+  }
+}
+
 //create 2 for loops to render the board, one loop within the other loop
 // don't forget to make a new array for it
 export default function chessboard() {
@@ -57,5 +65,9 @@ export default function chessboard() {
       board.push(<Tile key={`${l},${i}`} image={image} number={number}></Tile>);
     }
   }
-  return <div id="chessboard">{board}</div>;
+  return (
+    <div id="chessboard" onMouseDown={(e) => grabPiece(e)}>
+      {board}
+    </div>
+  );
 }

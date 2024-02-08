@@ -24,3 +24,11 @@
   background-position: center;
   background-size: 5rem;
 }
+
+.chess-piece:hover {
+  cursor: grab;
+}
+
+.chess-piece:active {
+  cursor: grabbing;
+}

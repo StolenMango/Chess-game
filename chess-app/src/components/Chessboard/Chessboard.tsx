@@ -54,6 +54,19 @@ function grabPiece(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   }
 }
 
+function movePiece(e: React.MouseEvent) {
+  const element = e.target as HTMLElement;
+  // the image of the piece is not moving with the cursor so at some point we will be targeting the tile instead
+  // of the piece. I will try to fix using the grab piece logic.
+  if (element.classList.contains("chess-piece")) {
+    const x = e.clientX - 50;
+    const y = e.clientY - 50;
+    element.style.position = "absolute";
+    element.style.left = `${x}px`;
+    element.style.top = `${y}px`;
+  }
+}
+
 //create 2 for loops to render the board, one loop within the other loop
 // don't forget to make a new array for it
 export default function chessboard() {
@@ -72,7 +85,11 @@ export default function chessboard() {
     }
   }
   return (
-    <div id="chessboard" onMouseDown={(e) => grabPiece(e)}>
+    <div
+      id="chessboard"
+      onMouseMove={(e) => movePiece(e)}
+      onMouseDown={(e) => grabPiece(e)}
+    >
       {board}
     </div>
   );

@@ -45,6 +45,12 @@ function grabPiece(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   const element = e.target as HTMLElement;
   if (element.classList.contains("chess-piece")) {
     console.log(element);
+
+    const x = e.clientX - 50;
+    const y = e.clientY - 50;
+    element.style.position = "absolute";
+    element.style.left = `${x}px`;
+    element.style.top = `${y}px`;
   }
 }
 

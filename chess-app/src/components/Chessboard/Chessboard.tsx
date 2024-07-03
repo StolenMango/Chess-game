@@ -41,6 +41,9 @@ pieces.push({ image: "assets/king_w.png", x: 3, y: 0 });
 
 pieces.push({ image: "assets/pawn_b.png", x: 0, y: 6 });
 
+// save the grabbed piece in a variable to fix pieces moving on hover
+let activePiece: HTMLElement | null = null;
+
 function grabPiece(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   const element = e.target as HTMLElement;
   if (element.classList.contains("chess-piece")) {
@@ -51,19 +54,27 @@ function grabPiece(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     element.style.position = "absolute";
     element.style.left = `${x}px`;
     element.style.top = `${y}px`;
+
+    activePiece = element;
   }
 }
 
 function movePiece(e: React.MouseEvent) {
-  const element = e.target as HTMLElement;
   // the image of the piece is not moving with the cursor so at some point we will be targeting the tile instead
   // of the piece. I will try to fix using the grab piece logic.
-  if (element.classList.contains("chess-piece")) {
+  if (activePiece) {
     const x = e.clientX - 50;
     const y = e.clientY - 50;
-    element.style.position = "absolute";
-    element.style.left = `${x}px`;
-    element.style.top = `${y}px`;
+    activePiece.style.position = "absolute";
+    activePiece.style.left = `${x}px`;
+    activePiece.style.top = `${y}px`;
+  }
+}
+
+function dropPiece(e: React.MouseEvent) {
+  // check if active piece, otherwise you don't want this to do anything
+  if (activePiece) {
+    activePiece = null;
   }
 }
 
@@ -89,6 +100,7 @@ export default function chessboard() {
       id="chessboard"
       onMouseMove={(e) => movePiece(e)}
       onMouseDown={(e) => grabPiece(e)}
+      onMouseUp={(e) => dropPiece(e)}
     >
       {board}
     </div>
